@@ -1,0 +1,3 @@
+include ':smallwidthdimens'
+include ':app'
+rootProject.name = "swdimens"
