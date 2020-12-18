@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven'
 }
 
 android {
@@ -33,4 +34,22 @@ android {
 
 dependencies {
 
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: LOCAL_REPO_URL) {
+                authentication(userName: USER_NAME, password: PASSWORD)
+            }
+
+            pom.project {
+                version LIBRARY_VERSION
+                artifactId ARTIFACTID
+                groupId GROUP_ID
+                packaging LIB_TYPE
+                description LIB_DESCRIPTION
+            }
+        }
+    }
 }
